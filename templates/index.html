@@ -7,7 +7,7 @@
       <div class="container">
         <h1>Welcome to Blaime!</h1>
         <p>This is site is tailored made for Black Gaming and Anime startups</p>
-        <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
+        <p><a class="btn btn-success btn-lg" href="/about" role="button">Learn more About Us &raquo;</a></p>
       </div>
     </div>
 
@@ -16,8 +16,8 @@
       <div class="row">
         <div class="col-md-4">
           <h2>Upload Gaming Videos</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">Upload Here &raquo;</a></p>
+          <p>Take the time to share with others your awesome gaming footage </p>
+          <p><a class="btn btn-default" href="/listing/new" role="button">Upload Here &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>Upload Anime</h2>
@@ -30,6 +30,17 @@
           <p><a class="btn btn-default" href="#" role="button">Watch here &raquo;</a></p>
         </div>
       </div>
-
-      <hr>
+      <br >
+          {% for x in listings %}
+          <div class="col-md-3">
+              <div class="thumbnail">
+                  <div class="caption">
+                {{ x.name }}
+                {{ x.description }}
+              </div>
+              </div>
+          </div>
+            {% endfor %}
+     </div>
+    </div>
 {% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+<br /><br />
+    {% for message in get_flashed_messages() %}
+          <div class="alert alert-warning" role="alert">{{ message }}</div>
+    {% endfor %}
+	<form method='POST' action="/">
+     {{ form.csrf_token }}
+     <div class="form-group">
+     {{ form.name.label }} {{ form.name(size=20, class="form-control") }}
+     </div>
+     {{ form.video.label }} {{ form.video(size=20, class="form-control") }}
+     <br />
+     {{ form.description.label }} {{ form.name(size=200, class="form-control") }}
+     <br /><br />
+     <button class="btn btn-info" type="submit">Submit</button>
+    </form>
+
+{% endblock %}

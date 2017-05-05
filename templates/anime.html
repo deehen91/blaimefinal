@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+    <form method='POST'>
+     {{ form.csrf_token }}
+     {{ form.name.label }} {{ form.name(size=20) }}
+     {{ form.anime.label }} {{ form.anime(size=20) }}
+     {{ form.description.label }} {{ form.name(size=200) }}
+     <button type="submit">Submit</button>
+    </form>
+
+{% endblock %}
