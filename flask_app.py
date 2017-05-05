@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash, abort
 from flask_sqlalchemy import SQLAlchemy
 from wtforms import Form, StringField, DecimalField, TextAreaField
 from wtforms.validators import DataRequired
@@ -41,9 +41,13 @@ def newlisting():
     else:
         return render_template('newlisting.html', form=form)
 
-
-
-
+@app.route('/listing/show/<listing_id>')
+def listing_show(listing_id):
+    try:
+        lst = Listing.query.get(listing_id)
+    except:
+        abort(404)
+    return render_template('listing_show.html', list_id=lst.id, listing=lst)
 
 
 
