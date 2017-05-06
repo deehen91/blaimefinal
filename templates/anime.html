@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 {% block title %}Home Page{% endblock %}
 {% block content %}
-    <form method='POST'>
-     {{ form.csrf_token }}
-     {{ form.name.label }} {{ form.name(size=20) }}
-     {{ form.anime.label }} {{ form.anime(size=20) }}
-     {{ form.description.label }} {{ form.name(size=200) }}
-     <button type="submit">Submit</button>
-    </form>
+<div class="center">
+      <div class="row">
+        {% for listing in listings %}
+          <div class="col-md-3">
+            <div class="thumbnail">
+                  <div class="caption">
+                    <h3>{{ listing.name }}</h3>
+                    <p>{{ listing.price }}</p>
+                    <p>”listed by name"</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
 
 {% endblock %}

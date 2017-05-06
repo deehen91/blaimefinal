@@ -37,7 +37,7 @@ def newlisting():
           db.session.add(lst)
           db.session.commit()
           results = Listing.query.filter(1==1).all()
-          return render_template('index.html', listings=results)
+          return render_template('anime.html', listings=results)
     else:
         return render_template('newlisting.html', form=form)
 
@@ -49,6 +49,28 @@ def listing_show(listing_id):
         abort(404)
     return render_template('listing_show.html', list_id=lst.id, listing=lst)
 
+@app.route('/listing/edit/<listing_id>', methods=['GET', 'POST'])
+def listing_edit(listing_id):
+    form = ListingForm(request.form)
+    if request.method == 'POST':
+        if form.validate() == False:
+          flash('All fields are required.')
+          return render_template('listing_edit.html', form=form)
+        else:
+            lst = Listing.query.get(listing_id)
+            lst.name=form.name.data
+            lst.description= form.description.data
+            lst.price=form.video.data
+            db.session.commit()
+            flash('Your listing was edited.')
+            return render_template('newlisting.html', form=form)
+    else:
+        try:
+          lst = Listing.query.get(listing_id)
+          lastForm = ListingForm(obj=lst)
+        except:
+          about (404)
+        return render_template('listing_edit.html', form=lstForm)
 
 
 @app.route('/about')
