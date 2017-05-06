@@ -13,6 +13,7 @@
 
     <div class="container">
       <!-- Example row of columns -->
+
       <div class="row">
         <div class="col-md-4">
           <h2>Upload Gaming Videos</h2>
@@ -22,12 +23,12 @@
         <div class="col-md-4">
           <h2>Upload Anime</h2>
           <p>Know about any cool Anime? Let us know here </p>
-          <p><a class="btn btn-default" href="#" role="button">Upload Here &raquo;</a></p>
+          <p><a class="btn btn-default" href="/listing/new" role="button">Upload Here &raquo;</a></p>
        </div>
         <div class="col-md-4">
           <h2>View Uploaded videos</h2>
           <p>Check out the content thats been added to the site!</p>
-          <p><a class="btn btn-default" href="/listing/show/1" role="button">Watch here &raquo;</a></p>
+          <p><a class="btn btn-default" href="/listing/show/2" role="button">Watch here &raquo;</a></p>
         </div>
       </div>
       <br >
@@ -37,7 +38,7 @@
                   <div class="caption">
                  <h3><a href="{{ url_for('listing_show', listing_id=listing.id) }}">{{ listing.name }}</a></h3>
                     <p>{{ listing.video }}</p>
-                    <p>”listed by name"</p>
+                    <p>"listed by name"</p>
               </div>
               </div>
           </div>

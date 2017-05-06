@@ -72,6 +72,11 @@ def listing_edit(listing_id):
           about (404)
         return render_template('listing_edit.html', form=lstForm)
 
+@app.route('/listing/delete/<listing_id>')
+def listing_delete(listing_id):
+    Listing.query.filter_by(id=listing_id).delete()
+    db.session.commit()
+    return render_template('listing_delete_confirm.html', listid=listing_id)
 
 @app.route('/about')
 def about():
